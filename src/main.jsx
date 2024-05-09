@@ -5,7 +5,7 @@ import "./styles/app.scss";
 import { createContext } from "react";
 import cors from "cors";
 
-export const server = "https://nodejs-todoapp-f0td.onrender.com/";
+export const server = "http://localhost:4000";
 
 export const Context = createContext({ isAuthenticated: false });
 

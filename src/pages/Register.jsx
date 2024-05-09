@@ -29,15 +29,22 @@ const Register = () => {
           withCredentials: true,
         }
       );
-      console.log(data);
-      toast.success(data.message);
+      toast.success("nice");
       setIsAuthenticated(true);
       setLoading(false);
-    } catch (error) {
-      toast.error(error.response.data.message);
-      setIsAuthenticated(false);
-      setLoading(false);
     }
+    catch (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    };
   };
 
   if (isAuthenticated) return <Navigate to={"/"} />;
